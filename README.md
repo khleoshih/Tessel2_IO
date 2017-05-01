@@ -1,4 +1,4 @@
-##ESLab Lab2
+## ESLab Lab2
 * Input
     - using accel-mma84 module
 * Output
