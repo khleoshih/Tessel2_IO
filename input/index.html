@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Tessel</title>
+	</head>
+	<body>
+		<ul id="accelerater">
+		<li id="x">x: <span id="xval"></span></li>
+		<li id="y">y: <span id="yval"></span></li>
+		<li id="z">z: <span id="zval"></span></li>
+		</ul>	
+	</body>
+	<script src="/socket.io/socket.io.js"></script>
+	<script language="javascript" type="text/javascript">
+		var socket = io();
+		var xval = document.getElementById("xval");
+		var yval = document.getElementById("yval");
+		var zval = document.getElementById("zval");
+		
+		function init() {
+			socket.on('accel', function(data){
+				console.log("ok");
+				xval.textContent = data.x;
+				yval.textContent = data.y;
+				zval.textContent = data.z;
+			});
+		}
+		window.addEventListener("load", init, false);
+	</script>
+</html>

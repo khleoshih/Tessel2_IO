@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tessel Web App</title>
+</head>
+<body>
+	<form id = "servo">
+		<input id="position" />
+		<button>Send</button>
+	</form>
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+	var socket = io();
+	var pos = document.getElementById("position");
+	var input = document.getElementById("servo");
+	input.addEventListener('submit', pos_send);
+	function pos_send(){
+		socket.emit('position', pos.value);
+	}
+</script>
+</html>
